@@ -1,0 +1,33 @@
+{include file="../Common/head.html"}
+
+		<div id="divMain">
+		{foreach $articleList as $article}
+		<div class="post multi">
+			<h4 class="post-date">{$article.updated_time|date_format:'Y-m-d H:i:s'}</h4>
+			<h2 class="post-title">
+				<a href="index.php?p=home&c=article&a=detail&id={$article.id}" target="_blank">{$article.title}</a>
+			</h2>
+			<div class="post-body">
+				{$article.description}
+			</div>
+			<h5 class="post-tags"></h5>
+			<h6 class="post-footer">
+				作者:{$article.author}| 分类:{$article.categoryName} | 阅读:{$article.click} | 赞:{$article.zan} | 评论:{$article.comment}</h6>
+		</div>
+		{/foreach}
+<div class="pagebar" > 
+  	{$articlePage}
+</div>
+		</div>
+<div id="divSidebar">
+ </div>
+		<div id="divBottom">
+        	<h3 id="BlogCopyRight">
+                                            	Copyright © 2008-2028 PHP150912 All Rights Reserved            </h3>
+			<h4 id="BlogPowerBy">Powered by <a href="" title="myblog" target="_blank">myblog V1.0 Release 20151116</a></h4>
+		</div><div class="clear"></div>
+	</div><div class="clear"></div>
+	</div><div class="clear"></div>
+</div>
+</body>
+</html>

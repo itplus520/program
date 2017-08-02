@@ -1,0 +1,98 @@
+{include file="../Common/head.html"}
+
+<div id="divMain">
+	{foreach $articlelistData as $article}
+		<div class="post multi">
+			<h4 class="post-date">{$article.updated_time|date_format:'Y-m-d H:i:s'}</h4>
+			<h2 class="post-title"><a href="index.php?p=home&c=article&a=detail&id={$article.id}" target="_blank">{$article.title}</a></h2>
+			<div class="post-body">
+				{$article.description}
+			</div>
+			<h5 class="post-tags"></h5>
+			<h6 class="post-footer">
+				作者:{$article.author} | 分类:{$article.categoryName} | 阅读:{$article.click} | 赞:{$article.zan} | 评论:{$article.comment}</h6>
+		</div>
+	{/foreach}
+	<div class="pagebar" style="text-align: center">
+  		{$articlePage}
+  	</div>
+</div>
+<div id="divSidebar">
+ 
+<dl class="function" id="divSearchPanel">
+<dt class="function_t">文章标题搜索</dt><dd class="function_c">
+
+<div>
+	<form name="search" method="post" action="">
+		<input type="text" name="q" size="11" value=""/> 
+		<input type="submit" value="搜索" />
+	</form>
+</div>
+
+
+</dd>
+</dl> 
+<dl class="function" id="divCalendar">
+<dt style="display:none;"></dt><dd class="function_c">
+
+<div></div>
+
+
+</dd>
+</dl> 
+<dl class="function" id="divCatalog">
+<dt class="function_t">文章分类</dt><dd class="function_c">
+<ul>
+	{foreach $categoryList as $arr}
+			<li >
+		<a href="index.php?p=home&c=article&a=list&id={$arr.id}" target="_blank">{str_repeat('&nbsp;',$arr.level*4)}{$arr.cname}</a>
+			</li>
+	{/foreach}
+	</ul>
+
+</dd>
+</dl> 
+
+
+
+<ul></ul>
+
+</dd>
+</dl> 
+<dl class="function" id="divFavorites">
+<dt class="function_t">网站收藏</dt><dd class="function_c">
+
+
+<ul><li><a href="" target="_blank">myblog社区</a></li><li><a href="" target="_blank">myblog应用中心</a></li></ul>
+
+</dd>
+</dl> 
+<dl class="function" id="divLinkage">
+<dt class="function_t">友情链接</dt><dd class="function_c">
+
+
+<ul><li><a href="" target="_blank" title="myblog开源博客系统">myblog官网</a></li></ul>
+
+</dd>
+</dl> 
+<dl class="function" id="divMisc">
+<dt style="display:none;"></dt><dd class="function_c">
+
+
+<ul><li><a href="" target="_blank"><img src="./Public/home/image/logo/myblog.gif" height="31" width="88" alt="myblog" /></a></li><li><a href="" target="_blank"><img src="./Public/home/image/logo/rss.png" height="31" width="88" alt="订阅本站的 RSS 2.0 新闻聚合" /></a></li></ul>
+
+</dd>
+</dl>		</div>
+<div id="divBottom">
+        	<h3 id="BlogCopyRight">
+                                            	Copyright © 2008-2028 PHP150912 All Rights Reserved            </h3>
+			<h4 id="BlogPowerBy">Powered by <a href="" title="myblog" target="_blank">myblog V1.0 Release 20151116</a></h4>
+		</div><div class="clear"></div>
+	</div><div class="clear"></div>
+	</div><div class="clear"></div>
+</div>
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+</body>
+</html>
